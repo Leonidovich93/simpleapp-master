@@ -1,0 +1,13 @@
+#!/bin/bash
+
+exec 2>&1
+
+echo "Starting SpringBoot Application Price-Type-Rules-Service"
+
+JAR_FILE="{{ pkg.path }}/app/{{cfg.server.artifact_name}}"
+
+JAVA_ARGS=""
+
+JAVA_ARGS="${JAVA_ARGS} -jar ${JAR_FILE} --server.port={{cfg.server.port}}"
+
+exec java ${JAVA_ARGS}
